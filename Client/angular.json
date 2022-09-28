@@ -94,6 +94,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "Client:build:production",
+            "firebaseProject": "angular-dotnet-demo",
+            "firebaseHostingSite": "angular-dotnet-demo"
+          }
         }
       }
     }

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-dotnet-demo": {
+      "hosting": {
+        "Client": [
+          "angular-dotnet-demo"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-dotnet-demo"
+  }
+}
