@@ -1,0 +1,26 @@
+<h5>Auth</h5>
+<form [formGroup]="registerForm"
+  (ngSubmit)="registerForm.valid && signInEmailAndPassword(registerForm.controls['email'].value, registerForm.controls['password'].value)"
+  autocomplete="off">
+
+  <label for="email">Email: </label>
+  <input type="email" [formControl]="registerForm.controls['email']">
+
+  <label for="password">Password: </label>
+  <input type="password" [formControl]="registerForm.controls['password']">
+
+  <label for="confirmPassword">Confirm password: </label>
+  <input type="password" [formControl]="registerForm.controls['confirmPassword']">
+
+  <button [disabled]="!registerForm.valid" class="btn btn-success me-2" type="submit">Sign in</button>
+  <div *ngIf="registerForm.controls.control?.errors?.required" class="invalid-feedback">The value is mandatory
+  </div>
+</form>
+
+<p>Form Status: {{ registerForm.status }}</p>
+
+<cool-google-button *ngIf="!(authState | async)" color="dark" (click)="googleSignIn()">
+  Sign in with Google
+</cool-google-button>
+
+<button type="button" class="btn btn-primary" *ngIf="(authState | async)" (click)="signOut()">Log out</button>
