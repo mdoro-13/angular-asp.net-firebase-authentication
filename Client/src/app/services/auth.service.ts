@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject } from 'rxjs';
@@ -9,13 +10,14 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AuthService {
 
-  constructor(private fa: AngularFireAuth, private toastr: ToastrService) {
+  constructor(private fa: AngularFireAuth, private toastr: ToastrService, private router: Router) {
 
   }
 
   public googleSignIn() {
     this.fa.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(response => {
       console.log(response)
+      this.router.navigateByUrl('/weather-info')
     }).catch(error => {
       console.log(error)
     });
@@ -38,7 +40,9 @@ export class AuthService {
         this.toastr.error('You cannot sign in until the email has been verified');
         this.signOut();
       }
+
       console.log(response)
+      this.router.navigateByUrl('/weather-info')
     }).catch((error) => {
       console.log(error)
     })
