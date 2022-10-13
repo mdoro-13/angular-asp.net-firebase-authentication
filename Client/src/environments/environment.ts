@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  apiUrl: 'https://localhost:7146',
   firebaseConfig: {
     apiKey: "AIzaSyBG0JHglB0uZUGs8eZTGxpBGwIzs5X6OQg",
     authDomain: "angular-dotnet-demo.firebaseapp.com",

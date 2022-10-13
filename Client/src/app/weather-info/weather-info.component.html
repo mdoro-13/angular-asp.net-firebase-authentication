@@ -1,0 +1,8 @@
+<div *ngIf="(weatherInfo | async)">
+  <ul *ngFor="let forecast of (weatherInfo | async)">
+    <li>On {{ forecast.date | date }} the weather will be {{ forecast.summary | lowercase }} with a temperature of {{
+      forecast.temperatureC }}</li>
+  </ul>
+</div>
+
+<p *ngIf="!(weatherInfo | async)"> There is no weather data for now...</p>
