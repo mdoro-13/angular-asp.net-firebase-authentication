@@ -2,13 +2,16 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
 import { ToastrService } from 'ngx-toastr';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private fa: AngularFireAuth, private toastr: ToastrService) { }
+  constructor(private fa: AngularFireAuth, private toastr: ToastrService) {
+
+  }
 
   public googleSignIn() {
     this.fa.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(response => {
@@ -23,6 +26,19 @@ export class AuthService {
       response.user?.sendEmailVerification();
       this.toastr.success('A verification link has been sent to your email address. Once you\'ve confirmed it, you can log in!', 'Email confirmation');
       this.signOut();
+      console.log(response)
+    }).catch((error) => {
+      console.log(error)
+    })
+  }
+
+  public logInWithEmailAndPassword(email: string, password: string) {
+    this.fa.signInWithEmailAndPassword(email, password).then((response) => {
+      if (!response.user?.emailVerified) {
+        this.toastr.error('You cannot sign in until the email has been verified');
+        this.signOut();
+      }
+      console.log(response)
     }).catch((error) => {
       console.log(error)
     })
