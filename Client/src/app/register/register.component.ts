@@ -24,6 +24,7 @@ export class RegisterComponent implements OnInit {
 
   signInEmailAndPassword(email: string, password: string) {
     this.authService.registerInWithEmailAndPassword(email, password);
+    this.registerForm.reset();
   }
 
   signOut() {

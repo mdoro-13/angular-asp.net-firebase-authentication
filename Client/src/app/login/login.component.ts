@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
 
   logIn(email: string, password: string) {
     this.authService.logInWithEmailAndPassword(email, password);
+    this.loginForm.reset();
   }
 
   googleSignIn() {
