@@ -11,17 +11,14 @@ import { Validators } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  authState!: Observable<firebase.User | null>;
   registerForm: any;
-  loginForm: any;
-  isLogin = false;
+  isLoggedIn = false;
 
-  constructor(private authService: AuthService, private fb: FormBuilder) {
+  constructor(public authService: AuthService, private fb: FormBuilder) {
 
   }
 
   ngOnInit(): void {
-    this.authState = this.authService.getAuthState();
     this.initializeForm();
   }
 
@@ -40,7 +37,7 @@ export class RegisterComponent implements OnInit {
   private initializeForm() {
     this.registerForm = this.fb.group({
       email: ['', Validators.email],
-      password: ['', Validators.required],
+      password: ['', Validators.required, Validators.minLength(6)],
       confirmPassword: ['', [Validators.required, this.matchValues('password')]]
     });
     this.registerForm.controls.password.valueChanges.subscribe({

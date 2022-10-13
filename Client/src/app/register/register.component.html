@@ -1,4 +1,3 @@
-<h5>Auth</h5>
 <form [formGroup]="registerForm"
   (ngSubmit)="registerForm.valid && signInEmailAndPassword(registerForm.controls['email'].value, registerForm.controls['password'].value)"
   autocomplete="off">
@@ -19,8 +18,9 @@
 
 <p>Form Status: {{ registerForm.status }}</p>
 
-<cool-google-button *ngIf="!(authState | async)" color="dark" (click)="googleSignIn()">
+<cool-google-button *ngIf="!(authService.getAuthState() | async)" color="dark" (click)="googleSignIn()">
   Sign in with Google
 </cool-google-button>
 
-<button type="button" class="btn btn-primary" *ngIf="(authState | async)" (click)="signOut()">Log out</button>
+<button type="button" class="btn btn-primary" *ngIf="(authService.getAuthState() | async)" (click)="signOut()">Log
+  out</button>
