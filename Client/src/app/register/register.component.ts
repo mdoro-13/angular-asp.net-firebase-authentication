@@ -22,10 +22,6 @@ export class RegisterComponent implements OnInit {
     this.initializeForm();
   }
 
-  googleSignIn() {
-    this.authService.googleSignIn();
-  }
-
   signInEmailAndPassword(email: string, password: string) {
     this.authService.registerInWithEmailAndPassword(email, password);
   }

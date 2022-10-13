@@ -25,6 +25,10 @@ export class LoginComponent implements OnInit {
     this.authService.logInWithEmailAndPassword(email, password);
   }
 
+  googleSignIn() {
+    this.authService.googleSignIn();
+  }
+
   private initializeForm() {
     this.loginForm = this.fb.group({
       email: ['', Validators.email],
