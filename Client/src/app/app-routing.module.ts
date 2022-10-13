@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'weather-info', component: WeatherInfoComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: 'weather-info', pathMatch: 'full' },
+  { path: '**', redirectTo: 'weather-info', pathMatch: 'full' },
 ];
 
 @NgModule({
