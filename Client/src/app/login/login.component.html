@@ -8,7 +8,7 @@
   <label for="password">Password: </label>
   <input type="password" [formControl]="loginForm.controls['password']">
 
-  <button [disabled]="!loginForm.valid" class="btn btn-success me-2" type="submit">Sign in</button>
+  <button [disabled]="!loginForm.valid" class="btn btn-success me-2" type="submit">Sign up</button>
   <div *ngIf="loginForm.controls.control?.errors?.required" class="invalid-feedback">The value is mandatory
   </div>
 </form>

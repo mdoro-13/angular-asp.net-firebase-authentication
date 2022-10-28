@@ -14,13 +14,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { WeatherInfoComponent } from './weather-info/weather-info.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    WeatherInfoComponent
+    WeatherInfoComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
