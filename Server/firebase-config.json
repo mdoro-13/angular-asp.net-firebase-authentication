@@ -1,3 +1,5 @@
+// This service account has been deleted. I left the config here for demo purposes;
+// Otherwise, please make sure to protect this secret and not include it in your public repos;
 {
 	"type": "service_account",
 	"project_id": "angular-dotnet-demo",
