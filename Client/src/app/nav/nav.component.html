@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light bg-light justify-content-between">
+<nav class="navbar navbar-light bg-light justify-content-between mb-2 ms-2">
   <a class="navbar-brand">Angular Dotnet Firebase Auth Demo</a>
   <form class="form-inline">
     <button *ngIf="(authService.getAuthState() | async)" (click)="authService.signOut()"
