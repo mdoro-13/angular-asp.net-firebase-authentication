@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { WeatherInfoComponent } from './weather-info/weather-info.component';
 import { NavComponent } from './nav/nav.component';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
   providers: [
     { provide: FIREBASE_OPTIONS, useValue: environment.firebaseConfig },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

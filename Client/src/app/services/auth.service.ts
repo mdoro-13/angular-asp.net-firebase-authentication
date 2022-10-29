@@ -59,4 +59,8 @@ export class AuthService {
   public getAuthState() {
     return this.fa.authState;
   }
+
+  public getIdToken() {
+    return this.fa.idToken;
+  }
 }
