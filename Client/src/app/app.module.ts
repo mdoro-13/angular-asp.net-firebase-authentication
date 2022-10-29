@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { WeatherInfoComponent } from './weather-info/weather-info.component';
 import { NavComponent } from './nav/nav.component';
+import { ErrorInterceptor } from './interceptors/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,8 @@ import { NavComponent } from './nav/nav.component';
   ],
   providers: [
     { provide: FIREBASE_OPTIONS, useValue: environment.firebaseConfig },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
   ],
   bootstrap: [AppComponent]
 })
