@@ -23,7 +23,7 @@ FirebaseAdmin is an SDK that integrates Firebase into .NET services. This is use
 
 Microsoft.AspNetCore.Authentication.JwtBearer is a middleware that enables a service to receive an OpenID Connect bearer token.
 
-#### Please make sure not to include the firebase-config.json file in a public repository. I left it there for demo purposes after deleting the service. Firebase service account configuration files should be private. 
+### Please make sure not to include the firebase-config.json file in a public repository. I left it there for demo purposes after deleting the service. Firebase service account configuration files should be private. 
 
 For the demo, I implemented a register and login page. Upon signing in, the user will simply see a page with weather information (default endpoint in ASP.NET web api templates). The styling is minimal, since this is not the purpose of this demo.
 
