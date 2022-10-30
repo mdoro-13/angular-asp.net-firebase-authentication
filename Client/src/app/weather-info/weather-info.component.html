@@ -1,4 +1,4 @@
-<div *ngIf="(weatherInfo | async)">
+<div class="p-2" *ngIf="(weatherInfo | async)">
   <h5>If you can see the weather, it means you've successfully authenticated against the backend</h5>
   <ul *ngFor="let forecast of (weatherInfo | async)">
     <li>On {{ forecast.date | date }} the weather will be {{ forecast.summary | lowercase }} with a temperature of {{

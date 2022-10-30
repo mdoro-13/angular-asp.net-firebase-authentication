@@ -1,19 +1,27 @@
-<form [formGroup]="loginForm"
+<form class="d-flex flex-column" [formGroup]="loginForm"
   (ngSubmit)="loginForm.valid && logIn(loginForm.controls['email'].value, loginForm.controls['password'].value)"
   autocomplete="off">
+  <div class="form-group p-2">
+    <label for="email">Email: </label>
+    <input type="email" [formControl]="loginForm.controls['email']" class="form-control w-25">
+  </div>
+  <div class="form-group p-2">
+    <label for="password">Password: </label>
+    <input type="password" [formControl]="loginForm.controls['password']" class="form-control w-25">
+  </div>
 
-  <label for="email">Email: </label>
-  <input type="email" [formControl]="loginForm.controls['email']">
-
-  <label for="password">Password: </label>
-  <input type="password" [formControl]="loginForm.controls['password']">
-
-  <button [disabled]="!loginForm.valid" class="btn btn-success me-2" type="submit">Sign up</button>
+  <div class="p-2">
+    <button [ngClass]="loginForm.valid ? 'btn-success' : 'btn-danger'" [disabled]="!loginForm.valid"
+      class="btn me-2 form-control w-25" type="submit">Sign in</button>
+  </div>
+  <div class="p-2">
+    <cool-google-button *ngIf="!(authState | async)" color="dark" (click)="googleSignIn()">
+      Sign in with Google
+    </cool-google-button>
+  </div>
   <div *ngIf="loginForm.controls.control?.errors?.required" class="invalid-feedback">The value is mandatory
   </div>
 </form>
-<cool-google-button *ngIf="!(authState | async)" color="dark" (click)="googleSignIn()">
-  Sign in with Google
-</cool-google-button>
-<p>Form Status: {{ loginForm.status }}</p>
-<small><a routerLink="/register">Don't have an account? Sign up!</a></small>
+<div class="p-2">
+  <small><a routerLink="/register">Don't have an account? Sign up!</a></small>
+</div>
